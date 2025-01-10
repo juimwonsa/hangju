@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import Head from "next/head";
-import KakaoMapScript from "../components/KakaoMapScript";
+import KakaoMapScript from "../../components/KakaoMapScript";
 // SheetJS
 import * as XLSX from "xlsx";
 
