@@ -1,7 +1,7 @@
 "use client"; // Next.js 13(이하 App router) 환경에서 client component로 지정 시 (필요시)
 
-import { addresses } from "@/lib/address";
 import React, { useEffect, useRef } from "react";
+import { addresses } from "@/lib/address";
 
 const KakaoMap = () => {
   const mapRef = useRef(null); // 지도를 표시할 div 참조
