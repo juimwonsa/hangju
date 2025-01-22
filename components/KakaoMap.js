@@ -18,40 +18,40 @@ const KakaoMap = () => {
 
     // 2. 스크립트 로드 후 kakao.maps 로딩
     script.onload = () => {
-      window.kakao.maps.load(() => {
+      kakao.maps.load(() => {
         // 지도를 표시할 container
         const container = mapRef.current;
         // 지도 옵션 설정
         const options = {
-          center: new window.kakao.maps.LatLng(37.5665, 126.978), // 초기 지도 중심(서울 시청 근처)
+          center: new kakao.maps.LatLng(37.5665, 126.978), // 초기 지도 중심(서울 시청 근처)
           level: 5,
         };
         // 지도 생성
-        const map = new window.kakao.maps.Map(container, options);
+        const map = new kakao.maps.Map(container, options);
         // 주소-좌표 변환 객체
-        const geocoder = new window.kakao.maps.services.Geocoder();
+        const geocoder = new kakao.maps.services.Geocoder();
 
         // 주소 배열 돌면서 마커 표시
         addresses.forEach((addr) => {
           geocoder.addressSearch(addr, (result, status) => {
-            if (status === window.kakao.maps.services.Status.OK) {
+            if (status === kakao.maps.services.Status.OK) {
               const { x, y } = result[0];
-              const markerPosition = new window.kakao.maps.LatLng(y, x);
-              const marker = new window.kakao.maps.Marker({
+              const markerPosition = new kakao.maps.LatLng(y, x);
+              const marker = new kakao.maps.Marker({
                 position: markerPosition,
                 map,
               });
 
               // 간단한 인포윈도우 예시
-              const infoWindow = new window.kakao.maps.InfoWindow({
+              const info = new kakao.maps.InfoWindow({
                 content: `<div style="padding:5px; white-space:nowrap;">${addr}</div>`,
               });
 
               // 마커 호버 이벤트
-              window.kakao.maps.event.addListener(marker, "mouseover", () => {
+              kakao.maps.event.addListener(marker, "mouseover", () => {
                 infoWindow.open(map, marker);
               });
-              window.kakao.maps.event.addListener(marker, "mouseout", () => {
+              kakao.maps.event.addListener(marker, "mouseout", () => {
                 infoWindow.close();
               });
             }
