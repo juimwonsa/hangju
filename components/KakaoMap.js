@@ -12,7 +12,7 @@ const KakaoMap = () => {
 
     // 1. Kakao 지도 스크립트 동적 로드
     const script = document.createElement("script");
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAP_KEY}&libraries=services&autoload=false`;
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${"f58488efa9fe25c2dfa4f1ff2a1f544d"}&libraries=services&autoload=false`;
     script.async = true;
     document.head.appendChild(script);
 
