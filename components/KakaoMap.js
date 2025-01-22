@@ -33,6 +33,7 @@ const KakaoMap = () => {
 
         // 주소 배열 돌면서 마커 표시
         addresses.forEach((addr) => {
+          addr = addr.split(" - ")[1];
           geocoder.addressSearch(addr, (result, status) => {
             if (status === kakao.maps.services.Status.OK) {
               const { x, y } = result[0];
